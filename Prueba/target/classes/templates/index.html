@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <style>
+            body{
+                background-color: #d1c6c6;
+            }
+            .container {
+                width: 38%;
+                margin: auto;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                flex-direction: column;
+                position: relative;
+                border: 2px solid black;
+                top: 10vh;
+
+            }
+
+            label {
+                display: block;
+                text-align: center;
+                font-size: large;
+                position: relative;
+            }
+
+            input {
+                width: 300px;
+                height: 40px;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                border-radius: 20px;
+                padding:.7rem;
+                background-color: #fff;
+                color:#696868 ;
+                outline: none;
+
+            }
+            button{
+                margin-top:5%;
+                cursor:pointer;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+                padding: 5px;
+                background-color: rgb(255, 255, 255);
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div>
+                <h1>Iniciar sesión</h1>
+            </div>
+
+
+            <label for="">Correo Electronico:</label>
+            <input type="text" placeholder="Ingresa tu email."><br>
+            <label for="">Contraseña:</label>
+            <input type="password" placeholder="Ingresa tu contraseña"><br>
+
+            <button class="login">Enviar</button>
+            <a href="registro">
+                <button>No estoy registrado.</button>
+            </a>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Transacción</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <style>
+        h1 {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 40px;
+        }
+
+        p {
+            color: #2d3e50;
+            margin-left: auto !important;
+            width: fit-content;
+            padding: 1rem;
+            background-color: #f5f5dc;
+            display: flex;
+            justify-content: space-around
+        }
+
+        #modificar {
+            float: right;
+            position: relative;
+            top: -1em;
+            left: -2em;
+            margin: 0 auto;
+            height: max-content;
+            align-items: center;
+            cursor: pointer;
+            background-color: #4679B2;
+            border-radius: 10px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Admin Principal</h1><br>
+        <a th:href="@{/agregar}" th:text="agregar"></a>
+        <div th:if="${personas != null and !personas.empty}">
+
+            <table border="1" class="table">
+                <thead>
+                    <th class="col">Nombre</th>
+                    <th class="col">Apellido</thclass>
+                    <th class="col">Número cuenta</th>
+                    <th class="col">Tipo de giro</th>
+                    <th class="col">Valor de Transacción</th>
+                </thead>
+                <tbody th:each="persona : ${personas}">
+
+                    <th th:text="${persona.nombre}">Mostrar nombre</th>
+                    <th th:text="${persona.apellido}">Mostrar apellido</th>
+                    <th th:text="${persona.cuenta}">Mostrar cuenta</th>
+                    <th th:text="${persona.giro}">Mostrar tipo de giro</th>
+                    <th th:text="${persona.transaccion}">Mostrar valor de transacción</th>
+                    <th><a type="button" th:href="@{/editar/} + ${persona.id_persona}" th:text="Editar"></a></th>
+                    <th><a type="button" th:href="@{/eliminar/} + ${persona.id_persona}" th:text="Eliminar"></a></th>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${personas == null or personas.empty}">
+            <p>La lista está vacia</p><br>
+        </div>
+</body>
+
+</html>
